@@ -14,15 +14,15 @@ public class Main {
         do {
             System.out.println("Would you like to withdraw or deposit");
             String choice = scanner.nextLine();
-            double currentBalance = 10.0;
+            bank.setAccountBalance(10.0);
             String number = " ";
 
             try {
                 if (choice.equalsIgnoreCase("Withdraw")) {
-                    withdraw(number, currentBalance);
+                    withdraw(number, bank.getAccountBalance());
                     break;
                 } else if (choice.equalsIgnoreCase("Deposit")) {
-                    deposit(number, currentBalance);
+                    deposit(number, bank.getAccountBalance());
                     break;
                 } else
                     continue;
@@ -46,7 +46,7 @@ public class Main {
                 return;
             }
             currentBalance = deposit + currentBalance;
-            System.out.println("Thank you, your new current balance is: £" + currentBalance);
+            System.out.println("Your deposit of £" + deposit + " has been processed,  your new current balance is: £" + currentBalance);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Number");
         }
@@ -59,11 +59,11 @@ public class Main {
         try {
             double withdraw = Double.parseDouble(number);
             if (withdraw < 0.0 || currentBalance - withdraw < 0) {
-                System.out.println("Insufficient Funds, Try Again");
+                System.out.println("Insufficient Funds, you only have £" + currentBalance);
                 return;
             }
             currentBalance = currentBalance - withdraw;
-            System.out.println("Thank you, your new current balance is: £" + currentBalance);
+            System.out.println("Withdrawal of £" + withdraw + " has been processed, your new current balance is: £" + currentBalance);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Number");
         }

@@ -1,7 +1,7 @@
 public class bank {
 
     private String accountNumber;
-    private String accountBalance;
+    private double accountBalance;
     private String customerName;
     private String email;
     private int phoneNumber;
@@ -10,7 +10,7 @@ public class bank {
         return accountNumber;
     }
 
-    public String getAccountBalance() {
+    public double getAccountBalance() {
         return accountBalance;
     }
 
@@ -30,7 +30,7 @@ public class bank {
         this.accountNumber = accountNumber;
     }
 
-    public void setAccountBalance(String accountBalance) {
+    public void setAccountBalance(double accountBalance) {
         this.accountBalance = accountBalance;
     }
 
